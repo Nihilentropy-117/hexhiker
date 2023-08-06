@@ -298,3 +298,24 @@ ul {
 .container.active .main:hover {
   transform: perspective(1300px) rotateY(20deg) translateZ(340px) scale(0.5);
 }
+
+@media screen and (max-width: 768px) {
+  .links {
+    width: 30%
+  }
+
+  .container.active .main {
+    transform: perspective(1300px) rotateY(10deg) translateZ(50px) scale(0.65);
+  }
+
+  .container.active .shadow.one {
+    transform: perspective(1300px) rotateY(10deg) translateZ(-30px) scale(0.65);
+  }
+
+  .container.active .shadow.two {
+    transform: perspective(1300px) rotateY(10deg) translateZ(-60px) scale(0.65);
+  }
+  .navbar {
+    z-index: 20;
+  }
+}
