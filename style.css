@@ -96,7 +96,6 @@ button {
   transform-origin: left;
   transform-style: preserve-3d;
   transition: 0.5s;
-
 }
 
 header {
@@ -123,8 +122,6 @@ header {
   text-align: center;
   color: #fff;
   padding: 0 2rem;
-
-
 }
 
 .resume {
@@ -153,25 +150,25 @@ header {
   text-decoration: none;
 }
 
-.container.active .bar {
-  transform: rotate(360deg);
-  background-color: transparent;
-}
+@media screen and (min-width: 768px) {
+  .container.active .bar {
+    transform: rotate(360deg);
+    background-color: transparent;
+  }
 
-.container.active .bar:before {
-  transform: translateY(0) rotate(45deg);
-}
+  .container.active .bar:before {
+    transform: translateY(0) rotate(45deg);
+  }
 
-.container.active .bar:after {
-  transform: translateY(0) rotate(-45deg);
+  .container.active .bar:after {
+    transform: translateY(0) rotate(-45deg);
+  }
+  .container.active .main {
+    animation: main-animation 0.5s ease;
+    cursor: pointer;
+    transform: perspective(1300px) rotateY(20deg) translateZ(310px) scale(0.5);
+  }
 }
-
-.container.active .main {
-  animation: main-animation 0.5s ease;
-  cursor: pointer;
-  transform: perspective(1300px) rotateY(20deg) translateZ(310px) scale(0.5);
-}
-
 @keyframes main-animation {
   from {
     transform: translate(0);
@@ -326,7 +323,9 @@ ul {
 }
 
 .skill-set {
-  flex-basis: calc(50% - 0.5rem); /* Taking into account 1rem gap, so subtracting 0.5rem from each side */
+  flex-basis: calc(
+    50% - 0.5rem
+  ); /* Taking into account 1rem gap, so subtracting 0.5rem from each side */
   box-sizing: border-box;
   margin-bottom: 1rem;
 }
@@ -339,7 +338,9 @@ ul {
 }
 
 .job {
-  flex-basis: calc(50% - 0.5rem); /* Taking into account 1rem gap, so subtracting 0.5rem from each side */
+  flex-basis: calc(
+    50% - 0.5rem
+  ); /* Taking into account 1rem gap, so subtracting 0.5rem from each side */
   box-sizing: border-box;
   margin-bottom: 1rem;
 }
@@ -352,13 +353,14 @@ ul {
 }
 
 .education {
-  flex-basis: calc(50% - 0.5rem); /* Taking into account 1rem gap, so subtracting 0.5rem from each side */
+  flex-basis: calc(
+    50% - 0.5rem
+  ); /* Taking into account 1rem gap, so subtracting 0.5rem from each side */
   box-sizing: border-box;
   margin-bottom: 1rem;
 }
 
 @media screen and (max-width: 768px) {
-
   .links {
     width: 30%; /* Adjust based on your preference */
   }
@@ -372,13 +374,20 @@ ul {
   }
 
   .container.active .shadow.one {
-    transform: perspective(1300px) rotateY(10deg) translateZ(-30px) scale(0.65);
+    animation: shadow-one 0.6s ease-out,
+     shadow-shape-2 0.6s ease-out forwards;
   }
-
   .container.active .shadow.two {
-    transform: perspective(1300px) rotateY(10deg) translateZ(-60px) scale(0.65);
+    animation: shadow-two 0.6s ease-out,
+     shadow-shape-2 0.6s ease-out forwards;
   }
 
+  @keyframes shadow-shape-2 {
+    100% {
+      transform: perspective(1300px) rotateY(10deg) translateZ(-30px)
+        scale(0.65);
+    }
+  }
   /* Making sure navbar stays on top */
   .navbar {
     z-index: 20;
